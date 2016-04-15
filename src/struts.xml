@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="default" extends="struts-default" namespace="/">
+        <action name="login" class="com.fjnu.controller.action.LoginAction">
+            <result name="stu_success" type="redirect">student_GetStudentCourse.action</result>
+            <result name="coa_success" type="redirect">coach_GetCoachCourse.action</result>
+            <result name="admin_success" type="redirect">admin_LoadCoachCourse.action</result>
+            <result name="FAIL">error.jsp</result>
+        </action>
+        <action name="coach_*" class="com.fjnu.controller.action.CoachAction" method="{1}">
+            <result name="GetCoachCourse">jsps/Coach/ViewCourse.jsp</result>
+            <result name="GetCoachCourseForFeedback">jsps/Coach/ViewFeedback.jsp</result>
+            <result name="IdleInfo">jsps/Coach/SetIdletime.jsp</result>
+            <result name="InsertIdletime" type="redirect">coach_GetIdleInfo.action</result>
+            <result name="DeleteIdletime" type="redirect">coach_GetIdleInfo.action</result>
+            <result name="InsertFeedbackInfo" type="redirect">coach_GetCoachCourseForFeedback.action</result>
+        </action>
+        <action name="student_*" class="com.fjnu.controller.action.StudentAction" method="{1}">
+            <result name="GetStudentCourse">jsps/Student/ViewCourse.jsp</result>
+            <result name="LoadCoachCourse">jsps/Student/PurchaseCourse.jsp</result>
+            <result name="LoadIdleInfo">jsps/Student/CheckPurchase.jsp</result>
+            <result name="ConfirmPurchase" type="redirect">student_LoadCoachCourse.action</result>
+        </action>
+        <action name="admin_*" class="com.fjnu.controller.action.AdminAction" method="{1}">
+            <result name="LoadCoachCourse">jsps/Admin/Arranging_Course/SetCoachCourse.jsp</result>
+            <result name="InsertCoachCourse" type="redirect">admin_LoadCoachCourse.action</result>
+            <result name="DeleteCoachCourse" type="redirect">admin_LoadCoachCourse.action</result>
+            <result name="GetCoachAndCourse">jsps/Admin/Arranging_Course/AddCoachCourse.jsp</result>
+            <result name="GetCoachSchedule">jsps/Admin/Arranging_Course/ViewCoachSchedule.jsp</result>
+            <result name="GetStudentSchedule">jsps/Admin/Arranging_Course/ViewStudentSchedule.jsp</result>
+            <result name="GetFeedback">jsps/Admin/Arranging_Course/ViewFeedback.jsp</result>
+            <result name="GetSeatInfo">jsps/Admin/Arranging_Course/Seat_ViewSeat.jsp</result>
+            <result name="GetSeatDetail">jsps/Admin/Arranging_Course/Seat_SeatDetail.jsp</result>
+            <result name="GetPALInfo">/jsps/Admin/Finance/ViewPAL.jsp</result>
+            <result name="GetIncomeInfo">/jsps/Admin/Finance/ViewIncome.jsp</result>
+            <result name="GetPayInfo">jsps/Admin/Finance/ViewPay.jsp</result>
+            <result name="payment">jsps/Admin/Finance/StudentPay.jsp</result>
+            <result name="GetDayIncome">jsps/Admin/Finance/DayIncome.jsp</result>
+            <result name="GetClassConsume">jsps/Admin/Finance/Class_Consume.jsp</result>
+            <result name="GetDayOutput">jsps/Admin/Finance/DayOutput.jsp</result>
+            <result name="GetSalary">jsps/Admin/Finance/Salary.jsp</result>
+            <result name="InsertDayOutput">jsps/Admin/Finance/DayOutput.jsp</result>
+            <result name="InsertDayInput">jsps/Admin/Finance/DayIncome.jsp</result>
+        </action>
+        <action name="seat_*" class="com.fjnu.controller.action.SeatAction" method="{1}">
+            <result name="AddSeat">jsps/Admin/Arranging_Course/Seat_AddSeat.jsp</result>
+            <result name="GetSeatInfo" type="redirect">admin_GetSeatInfo.action</result>
+            <result name="admin_success" type="redirect">admin_LoadCoachCourse.action</result>
+            <result name="FAIL">error.jsp</result>
+        </action>
+        <action name="logout" class="com.fjnu.controller.action.LogoutAction">
+            <result name="Logout">index.jsp</result>
+        </action>
+    </package>
+
+</struts>

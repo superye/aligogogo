@@ -1,0 +1,198 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{
+    margin:0;
+	padding:0;
+	font-size:12px;
+	list-style-type:none;
+	text-decoration:none;
+	}
+
+body#wrap
+{
+    
+	background:url(../images/bg.jpg) left top repeat;
+	}
+#header{
+	width:900px;
+	height:auto;
+	margin:10px auto 0px auto;
+	background:url(../images/head_bg.jpg) left top repeat-x;
+	}
+	
+#header a{
+	display:block;
+	
+	}
+#header a img{
+	width:900px;
+	height:68px;
+	}
+	
+
+
+#header .imgbox{
+	width:100%;
+	height:auto;
+	background:#7A8686;
+	
+	}
+#header .imgbox img{
+	width:250px;
+	height:auto;
+	 margin: 10px 23px;
+	}
+#main{
+	border-top: 2px solid #E66159;
+	background-color: #FAFAFA;
+	width:900px;
+	margin:0 auto;
+	min-height:400px;
+	
+	}
+#main #leftbox{
+	float:left;
+	width:566px;
+	height:auto;
+	padding-right: 4px;
+	background: url("../images/leftbox_vline.png") no-repeat scroll right center transparent;
+	}
+#main #leftbox .slogan{
+	background-color: #FAFAFA;
+    border-bottom: 1px solid #E6E6E6;
+    font-family: "microsoft yahei","Microsoft Yahei";
+    font-size: 24px;
+    font-style: italic;
+    line-height: 32px;
+    padding: 12px 0 13px 30px;
+	}
+#main #leftbox .slogan a{
+	margin-left:24px;
+	}
+#main #leftbox .slogan span{
+	 cursor: pointer;
+    display: inline-block;
+    font-family: "microsoft yahei","Microsoft Yahei";
+	color: #FFFFFF;
+    font-size: 22px;
+    font-style: normal;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+	}
+#main #leftbox .ad{
+	height:288px;
+	background: none repeat scroll 0 0 #FAFAFA;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 15px 28px;
+    width: 510px;
+	}
+#main #loginbox{
+	float:right;
+	width: 330px;
+	height:auto;
+    overflow: hidden;
+	}
+#main #loginbox .login_info{
+    margin: 48px auto 0;
+    width: 220px;
+	}
+
+form {
+	width: 100%;
+	background: #ffffff;
+}
+
+form label {
+	display: block;
+	padding: 0px 10px 0px 15px;
+	font-size: 12px;
+	color: #AAAAAA;
+}
+
+form label a {
+	display: none;
+}
+
+form span {
+	display: block;
+	font-size: 14px;
+	padding: 0;
+	margin-left: 130px;
+}
+
+form span a {
+	color: #0A8CD2;
+}
+
+form span a:hover {
+	text-decoration: underline;
+	color: #0A8CD2;
+}
+form input#account {
+	background: url("../images/login_count.png") no-repeat scroll 2px 2px  transparent;
+	padding: 0 0 0 35px;
+    width: 180px;
+    width:180px\0;        /*IE8*/
+    width:180px\9\0;      /*IE9*/
+    *width:180px;         /*IE7*/
+    _width:180px;         /*IE6*/
+    height:30px;
+    height:30px\0;        /*IE8*/
+    height:30px\9\0;      /*IE9*/
+    *height:30px;         /*IE7*/
+    _height:25px;         /*IE6*/
+    color: #808080;
+}
+form input#password {
+	background: url("../images/login_key.png") no-repeat scroll 2px 2px  transparent;
+	padding: 0 0 0 35px;
+    width: 180px;
+    width:180px\0;        /*IE8*/
+    width:180px\9\0;      /*IE9*/
+    *width:180px;         /*IE7*/
+    _width:180px;         /*IE6*/
+    
+    height:30px;
+    height:30px\0;        /*IE8*/
+    height:30px\9\0;      /*IE9*/
+    *height:30px;         /*IE7*/
+    _height:25px;         /*IE6*/
+	color: #808080;
+}
+form input#submit1{
+	width:180px;
+	 color: #FFFFFF;
+    font-weight: bold;
+	 font-size: 14px;
+	 
+	}
+div #identity{
+	width: 180px;
+	font-size: 12px;
+}
+
+#main #submit2{
+   width: 90px;
+   font-weight: bold;
+   font-size: 12px;
+   }
+
+#footer{
+	clear:both;
+	background: url("../images/footer_top_bg.jpg") no-repeat scroll center top #F7F7F8;
+    padding: 10px 0px;
+    text-align: center;
+	width:900px;
+	margin:0 auto;
+	color:#798686;
+	}
+ #footer a {
+	color: #0A8CD2;
+}
+#footer a:hover {
+	text-decoration: underline;
+	color: #0A8CD2;
+}

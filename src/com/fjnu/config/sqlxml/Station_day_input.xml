@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="station_day_input">
+
+    <select id="SelectDayInputInfo" resultType="com.fjnu.domain.station_day_input">
+        SELECT * FROM t_station_day_input x, Station y where x.station_id = y.station_id
+    </select>
+
+    <update id="InsertDayInputInfo" parameterType="com.fjnu.domain.station_day_input">
+        INSERT INTO t_station_day_input(order_id, station_id, payer_id, time, type, Pname, pay_money, counter_Fee, real_input, balance, transaction_type, has_invoice, person_in_charge)
+        VALUES (#{order_id}, #{station_id}, #{payer_id}, #{time}, #{type}, #{Pname}, #{pay_money}, #{counter_Fee}, #{real_input}, #{balance}, #{transaction_type}, #{has_invoice}, #{person_in_charge});
+    </update>
+</mapper>

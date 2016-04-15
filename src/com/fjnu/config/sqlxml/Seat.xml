@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Seat">
+
+    <resultMap type="com.fjnu.domain.Seat" id="SeatResult">
+        <result column="station_id" jdbcType="VARCHAR" property="station_id"/>
+        <result column="station_name" jdbcType="VARCHAR" property="station_name"/>
+        <result column="classroom" jdbcType="VARCHAR" property="classroom"/>
+        <result column="numOfSeat" jdbcType="VARCHAR" property="numOfSeat"/>
+    </resultMap>
+    <insert id="InsertMessage" parameterType="com.fjnu.domain.Seat">
+        INSERT INTO seat_info (station_id, station_name, classroom, numOfSeat)
+        VALUES (#{station_id}, #{station_name}, #{classroom}, #{numOfSeat})
+    </insert>
+    <update id="DeleteSeat" parameterType="com.fjnu.domain.Seat">
+        DELETE FROM seat_info WHERE classroom=#{classroom} AND station_id=#{station_id}
+    </update>
+    <update id="DeleteSeatByName" parameterType="com.fjnu.domain.Seat">
+        DELETE FROM seat_info WHERE classroom=#{classroom} AND station_name=#{station_name}
+    </update>
+    <select id="GetClassroomInfo" parameterType="com.fjnu.domain.Seat" resultType="int">
+        SELECT COUNT(*) FROM seat_info WHERE 1 = 1
+        AND station_name = #{station_name}
+    </select>
+    <select id="GetStation" parameterType="com.fjnu.domain.Seat" resultMap="SeatResult">
+        SELECT * FROM Station;
+    </select>
+    <select id="GetSeat" parameterType="com.fjnu.domain.Seat" resultMap="SeatResult">
+        SELECT * FROM seat_info;
+    </select>
+    <select id="GetStationId" parameterType="com.fjnu.domain.Seat" resultMap="SeatResult">
+        SELECT * FROM Station WHERE station_name=#{station_name}
+    </select>
+</mapper>

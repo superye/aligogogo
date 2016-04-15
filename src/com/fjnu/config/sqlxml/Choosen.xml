@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Choosen">
+
+    <resultMap type="com.fjnu.domain.Choosen" id="ChoosenResult">
+        <result column="course_name" jdbcType="VARCHAR" property="course_name"/>
+        <result column="cou_id" jdbcType="VARCHAR" property="cou_id"/>
+        <result column="tea_id" jdbcType="VARCHAR" property="tea_id"/>
+        <result column="type" jdbcType="VARCHAR" property="type"/>
+        <result column="start_day" jdbcType="VARCHAR" property="start_day"/>
+        <result column="end_day" jdbcType="VARCHAR" property="end_day"/>
+        <result column="price" jdbcType="INTEGER" property="price"/>
+    </resultMap>
+
+    <resultMap type="com.fjnu.domain.CoachStudent" id="UserChoosenResult">
+        <result column="cou_id" jdbcType="VARCHAR" property="cou_id"/>
+        <result column="cou_name" jdbcType="VARCHAR" property="cou_name"/>
+        <result column="coa_id" jdbcType="VARCHAR" property="coa_id"/>
+        <result column="coa_name" jdbcType="VARCHAR" property="coa_name"/>
+        <result column="stu_id" jdbcType="VARCHAR" property="stu_id"/>
+        <result column="stu_name" jdbcType="VARCHAR" property="stu_name"/>
+        <result column="start_day" jdbcType="VARCHAR" property="start_day"/>
+        <result column="end_day" jdbcType="VARCHAR" property="end_day"/>
+        <result column="clazz" jdbcType="VARCHAR" property="clazz"/>
+        <result column="weekday" jdbcType="VARCHAR" property="weekday"/>
+        <result column="station" jdbcType="VARCHAR" property="station"/>
+        <result column="classroom" jdbcType="VARCHAR" property="classroom"/>
+        <result column="price" jdbcType="INTEGER" property="price"/>
+        <result column="type" jdbcType="INTEGER" property="type"/>
+        <result column="leftcourse" javaType="INTEGER" property="leftcourse"/>
+    </resultMap>
+
+    <select id="GetChoosen" parameterType="com.fjnu.domain.User" resultMap="ChoosenResult">
+        SELECT * FROM Coach_Student a LEFT JOIN Coach_Course b ON
+          stu_id=#{username}
+          AND a.cou_id = b.cou_id
+          AND ispay='1'
+    </select>
+
+    <select id="GetCoaChoosen" parameterType="com.fjnu.domain.CoachStudent" resultMap="UserChoosenResult">
+        SELECT * FROM Coach_Student a, UserInfo b WHERE 1 = 1
+        AND a.stu_id = b.username
+        AND ispay='1'
+        <if test="coa_id != null and coa_id != ''">
+            AND coa_id = #{coa_id}
+        </if>
+        <if test="stu_name != null and stu_name != ''">
+            AND b.name = #{stu_name}
+        </if>
+        <if test="cou_name != null and cou_name != ''">
+            AND cou_name LIKE '%${cou_name}%'
+        </if>
+        <if test="station != null and station != ''">
+            <bind name="Station" value="'%' + station + '%'"/>
+            AND station LIKE #{Station}
+        </if>
+        <if test="end_day != null and end_day != ''">
+            AND end_day > #{end_day}
+        </if>
+    </select>
+
+    <select id="GetStuChoosen" parameterType="com.fjnu.domain.CoachStudent" resultMap="UserChoosenResult">
+        SELECT * FROM Coach_Student a, UserInfo b WHERE 1 = 1
+        AND a.coa_id = b.username
+        AND ispay='1'
+        <if test="stu_id != null and stu_id != ''">
+            AND stu_id = #{stu_id}
+        </if>
+        <if test="coa_name != null and coa_name != ''">
+            AND b.name = #{coa_name}
+        </if>
+        <if test="cou_name != null and cou_name != ''">
+            AND cou_name LIKE '%${cou_name}%'
+        </if>
+        <if test="station != null and station != ''">
+            AND station LIKE '%${station}%'
+        </if>
+        <if test="end_day != null and end_day != ''">
+            AND end_day > #{end_day}
+        </if>
+    </select>
+
+    <select id="GetClassroomInfo" parameterType="com.fjnu.domain.CoachStudent" resultType="int">
+        SELECT classroom FROM Coach_Student WHERE 1 = 1
+        AND station = #{station}
+        AND end_day > #{end_day}
+        AND weekday = #{weekday}
+        AND clazz = #{clazz}
+        AND type = #{type}
+    </select>
+
+    <select id="GetAllChoosen" parameterType="com.fjnu.domain.CoachStudent" resultMap="UserChoosenResult">
+        SELECT * FROM Coach_Student
+        <where>
+            <if test="classroom != null and classroom != ''">
+               AND classroom=#{classroom}
+            </if>
+            <if test="station != null and station != ''">
+                AND station=#{station}
+            </if>
+        </where>
+    </select>
+
+    <insert id="InsertMessage" parameterType="com.fjnu.domain.CoachStudent">
+        INSERT INTO Coach_Student(cou_id, cou_name, coa_id, stu_id, start_day, end_day, clazz, weekday, station, classroom, type, ispay, leftcourse)
+        VALUES (#{cou_id}, #{cou_name}, #{coa_id}, #{stu_id}, #{start_day}, #{end_day}, #{clazz}, #{weekday}, #{station}, #{classroom}, #{type},'0',20)
+    </insert>
+    <update id="DeleteChoosen" parameterType="com.fjnu.domain.CoachStudent">
+        DELETE FROM Coach_Student WHERE cou_id=#{cou_id} AND stu_id=#{stu_id} AND coa_id=#{coa_id} AND weekday=#{weekday} AND clazz=#{clazz}
+    </update>
+    <update id="ChangePayment" parameterType="com.fjnu.domain.CoachStudent">
+        update Coach_Student set ispay='1' where id=#{id}
+    </update>
+
+    <select id="GetNopayOrder" parameterType="com.fjnu.domain.CoachStudent" resultMap="UserChoosenResult">
+        SELECT * from Coach_Student  WHERE ispay='0'
+    </select>
+    <update id="DeleteOrder" parameterType="int">
+       UPDATE Coach_Student SET ispay=2 where id=#{id}
+    </update>
+
+    <update id="InsertDetail" parameterType="com.fjnu.domain.CoachStudent">
+        INSERT INTO c_s_detail(is_finished, coa_stu_id, date) VALUES ('0', #{id}, #{start_day})
+    </update>
+
+    <select id="GetOrder" parameterType="int" resultMap="UserChoosenResult">
+        SELECT * FROM Coach_Student WHERE id=#{id}
+    </select>
+</mapper>

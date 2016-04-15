@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="IdleTime">
+
+    <resultMap type="com.fjnu.domain.IdleTime" id="IdletimeResult">
+        <id column="coa_id" jdbcType="VARCHAR" property="coa_id"/>
+        <result column="weekday" jdbcType="VARCHAR" property="weekday"/>
+        <result column="clazz" jdbcType="VARCHAR" property="clazz"/>
+    </resultMap>
+
+    <select id="SelectCoachIdle" parameterType="com.fjnu.domain.IdleTime" resultMap="IdletimeResult">
+        SELECT * FROM Coach_Idletime WHERE
+        coa_id = #{username}
+    </select>
+    <insert id="InsertMessage" parameterType="com.fjnu.domain.IdleTime">
+        INSERT INTO Coach_Idletime(coa_id, weekday, clazz)
+        VALUES (#{coa_id}, #{weekday}, #{clazz})
+    </insert>
+
+    <update id="DeleteIdle" parameterType="com.fjnu.domain.IdleTime">
+        DELETE FROM Coach_Idletime WHERE coa_id=#{coa_id} AND weekday=#{weekday} AND clazz=#{clazz}
+    </update>
+</mapper>

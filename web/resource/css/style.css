@@ -1,0 +1,83 @@
+body {
+    font-family: "Microsoft YaHei";
+}
+
+#second {
+    margin: 40px auto;
+    width: 76%;
+    text-align: center;
+}
+
+#second2 {
+    margin: -20px auto 10px;
+    width: 76%;
+    text-align: right;
+}
+
+#table1 {
+    margin: 0 auto;
+    width: 76%;
+    text-align: center;
+    white-space: nowrap;
+}
+
+th {
+    text-align: center !important;
+}
+
+#table2 {
+    margin: auto auto;
+    width: 76%;
+    text-align: right;
+}
+
+.time-sort {
+    width: 9%;
+}
+
+.week {
+    width: 13%;
+}
+
+.time {
+    font-weight: 900;
+    font-size: 79%;
+}
+
+#last {
+    margin: 0 auto;
+    width: 76%;
+
+}
+
+#third {
+    margin: -20px auto 10px;
+    width: 76%;
+    text-align: center;
+}
+
+.formstyle {
+    margin: auto 33%;
+}
+
+.seat-resource1 {
+    width: 10%;
+}
+
+.seat-resource2 {
+    width: 50%;
+}
+
+.seat-resource3 {
+    width: 20%;
+}
+
+.seat-resource4 {
+    width: 20%;
+}
+
+.td-mid {
+    text-align: center !important;
+}
+
+

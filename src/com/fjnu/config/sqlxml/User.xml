@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="User">
+
+    <resultMap type="com.fjnu.domain.User" id="UserResult">
+        <id column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="identity" jdbcType="VARCHAR" property="identity"/>
+    </resultMap>
+
+    <resultMap type="com.fjnu.domain.UserInfo" id="UserInfoResult">
+        <id column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+    </resultMap>
+
+    <select id="CheckUser" parameterType="com.fjnu.domain.User" resultMap="UserResult">
+        SELECT * FROM User WHERE
+            username = #{username}
+            AND password = #{password}
+            AND identity = #{identity}
+    </select>
+
+    <select id="SelectName" parameterType="com.fjnu.domain.UserInfo" resultMap="UserInfoResult">
+        SELECT name from UserInfo WHERE
+        username = #{username}
+    </select>
+
+     <select id="SelectCoach" parameterType="com.fjnu.domain.UserInfo" resultMap="UserInfoResult">
+        SELECT * from User a,UserInfo b WHERE
+        identity='2' and a.username=b.username;
+    </select>
+
+</mapper>

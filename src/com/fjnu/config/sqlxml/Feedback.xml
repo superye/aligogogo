@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Feedback">
+
+    <resultMap type="com.fjnu.domain.Feedback" id="FeedbackResult">
+        <result column="fid" jdbcType="VARCHAR" property="fid"/>
+        <result column="name" jdbcType="VARCHAR" property="coa_name"/>
+        <result column="cou_name" jdbcType="VARCHAR" property="cou_name"/>
+        <result column="coa_name" jdbcType="VARCHAR" property="coa_name"/>
+        <result column="date" jdbcType="DATE" property="date"/>
+        <result column="IsNonarrival" jdbcType="INTEGER" property="IsNonarrival"/>
+        <result column="IsLate" jdbcType="INTEGER" property="IsLate"/>
+        <result column="lateTime" jdbcType="INTEGER" property="lateTime"/>
+    </resultMap>
+
+    <insert id="InsertMessage" parameterType="com.fjnu.domain.Feedback">
+        INSERT INTO feedback_info(fid, cou_id, date, IsNonarrival, IsLate, lateTime)
+        VALUES (#{fid}, #{cou_id}, #{date}, #{IsNonarrival}, #{IsLate}, #{lateTime})
+    </insert>
+
+    <select id="SelectFeedback" parameterType="com.fjnu.domain.Feedback" resultMap="FeedbackResult">
+        SELECT * FROM feedback_info a, UserInfo b, Course c WHERE 1 = 1
+        AND a.fid = b.username
+        AND a.cou_id = c.cou_id
+    </select>
+</mapper>

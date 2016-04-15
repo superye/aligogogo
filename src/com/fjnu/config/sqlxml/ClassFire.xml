@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ClassFire">
+
+    <resultMap type="com.fjnu.domain.ClassFire" id="ClassFireResult">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="date" jdbcType="VARCHAR" property="date"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="stu_id" jdbcType="VARCHAR" property="stu_id"/>
+        <result column="clazz" jdbcType="VARCHAR" property="clazz"/>
+        <result column="period" jdbcType="INTEGER" property="period"/>
+        <result column="pay" jdbcType="DOUBLE" property="pay"/>
+        <result column="income" jdbcType="DOUBLE" property="income"/>
+        <result column="unit_price" jdbcType="DOUBLE" property="unit_price"/>
+        <result column="unit_time" jdbcType="INTEGER" property="unit_time"/>
+        <result column="consume_price" jdbcType="DOUBLE" property="consume_price"/>
+        <result column="kind" jdbcType="VARCHAR" property="kind"/>
+        <result column="per_cmn" jdbcType="DOUBLE" property="per_cmn"/>
+        <result column="cmn" jdbcType="DOUBLE" property="cmn"/>
+    </resultMap>
+
+    <select id="SelectClassFireInfo" resultMap="ClassFireResult">
+      SELECT * FROM Class_Fire
+    </select>
+
+</mapper>

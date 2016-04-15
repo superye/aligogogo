@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="CoachCourse">
+
+    <resultMap type="com.fjnu.domain.CoachCourse" id="CoachCourseResult">
+        <id column="coa_id" jdbcType="VARCHAR" property="coa_id"/>
+        <id column="cou_id" jdbcType="VARCHAR" property="cou_id"/>
+        <result column="price" jdbcType="INTEGER" property="price"/>
+        <result column="station" jdbcType="INTEGER" property="station"/>
+    </resultMap>
+
+    <resultMap type="com.fjnu.domain.CoachStudent" id="ChoosenCSResult">
+        <id column="cou_id" jdbcType="VARCHAR" property="cou_id"/>
+        <id column="coa_id" jdbcType="VARCHAR" property="coa_id"/>
+        <result column="cou_name" jdbcType="VARCHAR" property="cou_name"/>
+        <result column="coa_name" jdbcType="VARCHAR" property="coa_name"/>
+        <result column="station" jdbcType="VARCHAR" property="station"/>
+        <result column="type" jdbcType="VARCHAR" property="type"/>
+        <result column="name" jdbcType="INTEGER" property="coa_name"/>
+        <result column="price" jdbcType="INTEGER" property="price"/>
+    </resultMap>
+    <resultMap type="com.fjnu.domain.Course" id="CourseResult">
+        <id column="cou_id" jdbcType="VARCHAR" property="cou_id"/>
+        <result column="cou_name" jdbcType="VARCHAR" property="cou_name"/>
+        <result column="type" jdbcType="VARCHAR" property="type"/>
+    </resultMap>
+    <select id="SelectAllCoachCourse" parameterType="com.fjnu.domain.CoachCourse" resultMap="CoachCourseResult">
+        SELECT DISTINCT * FROM Coach_Course WHERE 1 = 1
+    </select>
+
+    <select id="SelectCoachCourse" parameterType="com.fjnu.domain.CoachCourse" resultMap="CoachCourseResult">
+        SELECT DISTINCT * FROM Coach_Course WHERE 1 = 1
+        AND coa_id = #{username}
+    </select>
+
+    <select id="SelectCourse" parameterType="com.fjnu.domain.CoachCourse" resultMap="CourseResult">
+        SELECT * FROM Course
+    </select>
+
+    <select id="GetCoachCourse" parameterType="com.fjnu.domain.CoachStudent" resultMap="ChoosenCSResult">
+    SELECT * FROM Coach_Course a, Course b, UserInfo c WHERE 1 = 1
+
+        AND a.cou_id = b.cou_id
+        AND a.coa_id = c.username
+        <if test="coa_id != null and coa_id != ''">
+            AND coa_id = #{coa_id}
+        </if>
+        <if test="coa_name != null and coa_name != ''">
+            AND c.name like '%${coa_name}%'
+        </if>
+        <if test="cou_name != null and cou_name != ''">
+            AND cou_name LIKE '%${cou_name}%'
+        </if>
+        <if test="cou_id != null and cou_id != ''">
+            AND a.cou_id = #{cou_id}
+        </if>
+        <if test="station != null and station != ''">
+            AND station LIKE '%${station}%'
+        </if>
+        <if test="type != null and type != ''">
+            AND type = #{type}
+        </if>
+    </select>
+
+    <insert id="InsertMessage" parameterType="com.fjnu.domain.CoachCourse">
+        INSERT INTO Coach_Course(coa_id, cou_id, price, station)
+        VALUES (#{coa_id}, #{cou_id}, #{price}, #{station})
+    </insert>
+
+    <update id="UpdatePrice" parameterType="com.fjnu.domain.CoachCourse">
+        UPDATE Coach_Course SET price = #{price} WHERE tea_id = #{coa_id}
+        AND cou_id = #{cou_id}
+    </update>
+
+    <update id="DeleteCoachCourse" parameterType="com.fjnu.domain.CoachCourse">
+        DELETE FROM Coach_Course WHERE coa_id=#{coa_id} AND cou_id=#{cou_id}
+    </update>
+
+    <select id="GetCoursePrice" parameterType="com.fjnu.domain.CoachStudent" resultType="int">
+        SELECT price FROM Coach_Course where coa_id=#{coa_id} AND cou_id=#{cou_id}
+    </select>
+
+</mapper>

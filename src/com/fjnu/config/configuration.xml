@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!-- 可以配置多种环境，如果你想连接两个数据库，你需要创建两个SqlSessionFactory实例 -->
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC" />
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver" />
+                <property name="url" value="jdbc:mysql://120.25.249.29:3306/aligogogo?characterEncoding=UTF-8" />
+                <!--property name="url" value="jdbc:mysql://localhost:3306/aligo?characterEncoding=UTF-8" /-->
+                <property name="username" value="aligo" />
+                <property name="password" value="aligo" />
+            </dataSource>
+        </environment>
+    </environments>
+    <!-- 定义SQL映射语句路径 -->
+    <mappers>
+        <mapper resource="com/fjnu/config/sqlxml/CoachCourse.xml"/>
+        <mapper resource="com/fjnu/config/sqlxml/User.xml"/>
+        <mapper resource="com/fjnu/config/sqlxml/CoachIdletime.xml"/>
+        <mapper resource="com/fjnu/config/sqlxml/Choosen.xml"/>
+        <mapper resource="com/fjnu/config/sqlxml/Seat.xml"/>
+        <mapper resource="com/fjnu/config/sqlxml/Feedback.xml"/>
+        <mapper resource="com/fjnu/config/sqlxml/ClassFire.xml"/>
+        <mapper resource="com/fjnu/config/sqlxml/DayIncome.xml"/>
+        <mapper resource="com/fjnu/config/sqlxml/DayOutput.xml"/>
+        <mapper resource="com/fjnu/config/sqlxml/Station_day_input.xml"/>
+        <mapper resource="com/fjnu/config/sqlxml/Station_day_output.xml"/>
+        <mapper resource="com/fjnu/config/sqlxml/Salary.xml"/>
+    </mappers>
+</configuration>
