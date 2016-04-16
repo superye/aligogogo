@@ -66,7 +66,11 @@ public class AdminAction extends SuperAction implements ModelDriven<CoachStudent
         coachCourse.setCou_id(coachStudent.getCou_id());
         coachCourse.setPrice(coachStudent.getPrice());
         coachCourse.setStation(coachStudent.getStation());
-        addMessageService.AddCoachCourse(coachCourse);
+        try {
+            addMessageService.AddCoachCourse(coachCourse);
+        }catch (Exception ex) {
+
+        }
         return "InsertCoachCourse";
     }
 

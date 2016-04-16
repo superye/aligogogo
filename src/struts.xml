@@ -44,8 +44,8 @@
             <result name="GetClassConsume">jsps/Admin/Finance/Class_Consume.jsp</result>
             <result name="GetDayOutput">jsps/Admin/Finance/DayOutput.jsp</result>
             <result name="GetSalary">jsps/Admin/Finance/Salary.jsp</result>
-            <result name="InsertDayOutput">jsps/Admin/Finance/DayOutput.jsp</result>
-            <result name="InsertDayInput">jsps/Admin/Finance/DayIncome.jsp</result>
+            <result name="InsertDayOutput" type = "redirect">admin_GetDayOutput.action</result>
+            <result name="InsertDayInput" type = "redirect">admin_GetDayIncome.action</result>
         </action>
         <action name="seat_*" class="com.fjnu.controller.action.SeatAction" method="{1}">
             <result name="AddSeat">jsps/Admin/Arranging_Course/Seat_AddSeat.jsp</result>

@@ -9,7 +9,7 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Aligo-Admin-课程管理/师资安排</title>
+    <title>Aligo-Admin-财务管理/课消及提成管理</title>
     <link href="<%=basePath%>resource/css/bootstrap.min.css" rel="stylesheet">
     <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
     <script src="<%=basePath%>resource/js/bootstrap.min.js"></script>
@@ -36,12 +36,19 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="dropdown"><a href="#ad-carousel">课程管理</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">课程管理 <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="admin_LoadCoachCourse.action">师资安排</a></li>
+                        <li><a href="admin_GetStudentSchedule.action">查看学生课表</a></li>
+                        <li><a href="admin_GetCoachSchedule.action">查看Coach课表</a></li>
+                        <li><a href="admin_GetFeedback.action">查看反馈</a></li>
+                    </ul>
+                </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">座位管理 <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="#feature-tab" data-tab="tab-chrome">查看座位资源</a></li>
-                        <li><a href="#feature-tab" data-tab="tab-firefox">维护座位资源</a></li>
+                        <li><a href="admin_GetSeatInfo.action" data-tab="tab-chrome">查看座位资源</a></li>
                     </ul>
                 </li>
                 <li>
@@ -51,7 +58,7 @@
                         <li><a href="admin_GetPALInfo.action">查看每月盈亏</a></li>
                         <li><a href="admin_GetDayIncome.action">每日收支管理</a></li>
                         <li><a href="admin_GetSalary.action">薪资管理</a></li>
-                        <li><a href="admin_GetClassConsume.action">课消及提成管理</a></li>
+                        <li><a href="admin_GetClassConsume.action">课消管理</a></li>
                         <li><a href="admin_Payment.action">课程收费标准管理</a></li>
                     </ul>
                 </li>
@@ -82,11 +89,20 @@
         <li><a href="admin_GetPALInfo.action">查看每月支出</a></li>
         <li><a href="admin_GetDayIncome.action">每日收支管理</a></li>
         <li><a href="admin_GetSalary.action">薪资管理</a></li>
-        <li class="active"><a href="admin_GetClassConsume.action">课消及提成管理</a></li>
+        <li class="active"><a href="admin_GetClassConsume.action">课消管理</a></li>
         <li><a href="admin_Payment.action">课程收费标准管理</a></li>
     </ul>
 </div>
-
+<div class="tab-content">
+    <div class="tab-pane active" id="A">
+        <div id="third">
+            <ul class="nav nav-pills">
+                <li role="presentation" class="active"><a href="">课消管理</a></li>
+                <li role="presentation"><a href="">课消明细管理</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
 <div class="tab-pane" id="D">
     <div id="second2">
         <form class="form-inline">
@@ -131,24 +147,23 @@
 
     </div>
 
-
     <div id="table1" class="table-responsive">
         <table class="table table-bordered">
             <thead>
             <tr>
-                <th>订单id</th>
-                <th>学生编号</th>
-                <th>学生姓名</th>
-                <th>Coach ID</th>
-                <th>Coach姓名</th>
-                <th>所报课程</th>
-                <th>报名课时（H/次/天）</th>
-                <th>所交费用</th>
-                <th>实际收入</th>
-                <th>课程单价（H/次/天）</th>
-                <th>课时消耗（H/次/天）</th>
-                <th>课消费用</th>
-                <th>类别</th>
+                <th><div style="width: 150px;">订单id</div></th>
+                <th><div style="width: 150px;">学生编号</div></th>
+                <th><div style="width: 150px;">学生姓名</div></th>
+                <th><div style="width: 150px;">Coach ID</div></th>
+                <th><div style="width: 150px;">Coach姓名</div></th>
+                <th><div style="width: 200px;">所报课程</div></th>
+                <th><div style="width: 250px;">报名课时（H/次/天）</div></th>
+                <th><div style="width: 150px;">所交费用</div></th>
+                <th><div style="width: 150px;">实际收入</div></th>
+                <th><div style="width: 250px;">课程单价（H/次/天）</div></th>
+                <th><div style="width: 250px;">课时消耗（H/次/天）</div></th>
+                <th><div style="width: 150px;">课消费用</div></th>
+                <th><div style="width: 150px;">类别</div></th>
             </tr>
             </thead>
             <tbody>

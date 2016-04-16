@@ -9,7 +9,7 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Aligo-Admin-课程管理/师资安排</title>
+    <title>Aligo-Admin-财务管理/查看每日收支/查看每日收入</title>
     <link href="<%=basePath%>resource/css/bootstrap.min.css" rel="stylesheet">
     <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
     <script src="<%=basePath%>resource/js/bootstrap.min.js"></script>
@@ -36,12 +36,19 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="dropdown"><a href="#ad-carousel">课程管理</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">课程管理 <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="admin_LoadCoachCourse.action">师资安排</a></li>
+                        <li><a href="admin_GetStudentSchedule.action">查看学生课表</a></li>
+                        <li><a href="admin_GetCoachSchedule.action">查看Coach课表</a></li>
+                        <li><a href="admin_GetFeedback.action">查看反馈</a></li>
+                    </ul>
+                </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">座位管理 <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="#feature-tab" data-tab="tab-chrome">查看座位资源</a></li>
-                        <li><a href="#feature-tab" data-tab="tab-firefox">维护座位资源</a></li>
+                        <li><a href="admin_GetSeatInfo.action" data-tab="tab-chrome">查看座位资源</a></li>
                     </ul>
                 </li>
                 <li class="active">
@@ -50,7 +57,7 @@
                         <li><a href="admin_GetPALInfo.action" data-tab="tab-chrome">查看每月收支</a></li>
                         <li><a href="admin_GetDayIncome.action" data-tab="tab-firefox">每日收支管理</a></li>
                         <li><a href="admin_GetSalary.action">薪资管理</a></li>
-                        <li><a href="admin_GetClassConsume.action" data-tab="tab-chrome">课消及提成管理</a></li>
+                        <li><a href="admin_GetClassConsume.action" data-tab="tab-chrome">课消管理</a></li>
                         <li><a href="admin_Payment.action" data-tab="tab-firefox">课程收费标准管理</a></li>
                     </ul>
                 </li>
@@ -60,7 +67,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">教务管理员：Admin<span class="caret"></span></a>
+                       aria-expanded="false">教务管理员：<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">消息</a></li>
                         <li><a href="#">设置</a></li>
@@ -81,7 +88,7 @@
         <li><a href="admin_GetPayInfo.action">查看每月支出</a></li>
         <li class="active"><a href="admin_GetDayIncome.action">每日收支管理</a></li>
         <li><a href="admin_GetSalary.action">薪资管理</a></li>
-        <li><a href="admin_GetClassConsume.action">课消及提成管理</a></li>
+        <li><a href="admin_GetClassConsume.action">课消管理</a></li>
         <li><a href="admin_Payment.action">课程收费标准管理</a></li>
     </ul>
 </div>
@@ -105,16 +112,16 @@
     <table class="table table-bordered">
         <thead>
         <tr>
-            <th>时间</th>
-            <th>站点</th>
-            <th>类别</th>
-            <th>品名</th>
-            <th>缴费金额</th>
-            <th>手续费</th>
-            <th>实际收入</th>
-            <th>余额</th>
-            <th>交易类型</th>
-            <th>经手人</th>
+            <th><div>时间</div></th>
+            <th><div style="width: 300px">站点</div></th>
+            <th><div style="width: 150px">类别</div></th>
+            <th><div style="width: 150px">品名</div></th>
+            <th><div style="width: 150px">缴费金额</div></th>
+            <th><div style="width: 150px">手续费</div></th>
+            <th><div style="width: 150px">实际收入</div></th>
+            <th><div style="width: 150px">余额</div></th>
+            <th><div style="width: 150px">交易类型</div></th>
+            <th><div style="width: 150px">经手人</div></th>
         </tr>
         </thead>
         <tbody>

@@ -16,9 +16,12 @@ public class TimeSet {
     public List<Date> GetTime(int weekday, int clazz) {
         List<Date> list = new ArrayList<>();
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        int week=(Calendar.DAY_OF_WEEK+6) % 7;
-        System.out.println(week);
-        if (week >= weekday) {
+        System.out.println(cal.get(Calendar.DAY_OF_MONTH));
+        System.out.println(cal.get(Calendar.DAY_OF_WEEK));
+        int week=(cal.get(Calendar.DAY_OF_WEEK)+6) % 7;
+        System.out.println("\n\n\n\n\n\n" + week);
+        System.out.println("\n\n\n\n\n\n\n\n" + weekday);
+        if (week > weekday) {
             cal.add(Calendar.DAY_OF_MONTH, ((7-week+weekday)));
         } else {
             cal.add(Calendar.DAY_OF_MONTH, weekday - week);

@@ -2,6 +2,9 @@ body {
     font-family: "Microsoft YaHei";
 }
 
+.td {
+    text-align:center !important;
+}
 #second {
     margin: 40px auto;
     width: 76%;

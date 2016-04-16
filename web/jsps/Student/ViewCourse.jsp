@@ -46,7 +46,7 @@
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#ad-carousel">课程管理</a></li>
-        <li class=""><a href="http://120.25.249.29/8t2s_9stalk/userAction!login.action?username=${LoginId}&password=${LoginPassword}" >在线教学</a></li>
+        <li class=""><a href="http://120.25.249.29/8t2s_9stalk/userAction!login.action?username=${LoginId}&password=${LoginPassword}">在线教学</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">

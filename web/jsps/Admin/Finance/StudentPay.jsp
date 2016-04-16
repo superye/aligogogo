@@ -39,12 +39,19 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="dropdown"><a href="#ad-carousel">课程管理</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">课程管理 <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="admin_LoadCoachCourse.action">师资安排</a></li>
+                        <li><a href="admin_GetStudentSchedule.action">查看学生课表</a></li>
+                        <li><a href="admin_GetCoachSchedule.action">查看Coach课表</a></li>
+                        <li><a href="admin_GetFeedback.action">查看反馈</a></li>
+                    </ul>
+                </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">座位管理 <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="#feature-tab" data-tab="tab-chrome">查看座位资源</a></li>
-                        <li><a href="#feature-tab" data-tab="tab-firefox">维护座位资源</a></li>
+                        <li><a href="admin_GetSeatInfo.action" data-tab="tab-chrome">查看座位资源</a></li>
                     </ul>
                 </li>
                 <li>
@@ -54,7 +61,7 @@
                         <li><a href="admin_GetPALInfo.action" data-tab="">查看每月收支</a></li>
                         <li><a href="admin_GetDayIncome.action" data-tab="">每日收支管理</a></li>
                         <li><a href="admin_GetSalary.action">薪资管理</a></li>
-                        <li><a href="admin_GetClassConsume.action" data-tab="">课消及提成管理</a></li>
+                        <li><a href="admin_GetClassConsume.action" data-tab="">课消管理</a></li>
                         <li><a href="admin_Payment.action" data-tab="">学生收费管理</a></li>
                     </ul>
                 </li>
@@ -85,7 +92,7 @@
         <li><a href="admin_GetPALInfo.action">查看每月支出</a></li>
         <li><a href="admin_GetDayIncome.action">每日收支管理</a></li>
         <li><a href="admin_GetSalary.action">薪资管理</a></li>
-        <li><a href="admin_GetClassConsume.action">课消及提成管理</a></li>
+        <li><a href="admin_GetClassConsume.action">课消管理</a></li>
         <li  class="active"><a href="admin_Payment.action">学生收费管理</a></li>
     </ul>
 </div>

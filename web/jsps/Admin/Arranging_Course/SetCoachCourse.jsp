@@ -26,15 +26,6 @@
   <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
   <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
-
-  <script type="text/javascript">
-    $(document).ready(function() {
-      alert(${CoachCourseError});
-      if (${"yes".equals(CoachCourseError)}) {
-        alert("此条数据已存在");
-      }
-    })
-  </script>
 </head>
 <body>
 
@@ -51,22 +42,29 @@
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#ad-carousel">课程管理</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">课程管理 <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="admin_LoadCoachCourse.action">师资安排</a></li>
+            <li><a href="admin_GetStudentSchedule.action">查看学生课表</a></li>
+            <li><a href="admin_GetCoachSchedule.action">查看Coach课表</a></li>
+            <li><a href="admin_GetFeedback.action">查看反馈</a></li>
+          </ul>
+        </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">座位管理 <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="admin_GetSeatInfo.action" data-tab="tab-chrome">查看座位资源</a></li>
-            <li><a href="#" data-tab="tab-firefox">维护座位资源</a></li>
           </ul>
         </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">财务管理 <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="admin_GetPALInfo.action" data-tab="tab-chrome">查看每月收支</a></li>
-            <li><a href="#feature-tab" data-tab="tab-firefox">每日收支管理</a></li>
-            <li><a href="#feature-tab" data-tab="tab-firefox">薪资管理</a></li>
-            <li><a href="#feature-tab" data-tab="tab-chrome">课消及提成管理</a></li>
-            <li><a href="#feature-tab" data-tab="tab-firefox">课程收费标准管理</a></li>
+            <li><a href="admin_GetPALInfo.action" data-tab="tab-chrome">查看每月盈亏</a></li>
+            <li><a href="admin_GetDayIncome.action" data-tab="tab-firefox">每日收支管理</a></li>
+            <li><a href="admin_GetSalary.action">薪资管理</a></li>
+            <li><a href="admin_GetClassConsume.action" data-tab="tab-chrome">课消管理</a></li>
+            <li><a href="admin_Payment.action" data-tab="tab-firefox">课程收费标准管理</a></li>
           </ul>
         </li>
 
