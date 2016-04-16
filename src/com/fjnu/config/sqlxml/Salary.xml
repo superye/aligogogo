@@ -8,4 +8,8 @@
     <select id="SelectSalaryInfo" resultType="com.fjnu.domain.Salary">
         SELECT * FROM salary
     </select>
+
+    <select id="SelectCoa_SalaryInfo" resultType="com.fjnu.domain.Coa_Salary">
+        SELECT * FROM coa_salary
+    </select>
 </mapper>

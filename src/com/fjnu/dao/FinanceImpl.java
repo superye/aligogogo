@@ -122,4 +122,22 @@ public class FinanceImpl implements FinanceDAO {
         if (flag != 0) return true;
         else return false;
     }
+
+    @Override
+    public List<Coa_Salary> GetCoa_SalaryInfo() {
+        DBAccess dbAccess = new DBAccess();
+        List<Coa_Salary> list = new ArrayList<Coa_Salary>();
+        SqlSession sqlSession = null;
+        try {
+            sqlSession = dbAccess.getSqlSession();
+            list = sqlSession.selectList("Salary.SelectCoa_SalaryInfo");
+        }catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            if (sqlSession != null) {
+                sqlSession.close();
+            }
+        }
+        return list;
+    }
 }

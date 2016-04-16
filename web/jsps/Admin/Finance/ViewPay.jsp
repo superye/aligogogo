@@ -7,7 +7,7 @@
     %>
     <meta name="viewpo<%@ page contentType="text/html;charset=UTF-8" language="java" %>rt" content="width=device-width, initial-scale=1">
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-    <title>Aligo-Admin-财务管理/查看每月收支/查看每月支出</title>
+    <title>Aligo-Admin-财务管理/查看每月盈亏/查看每月支出</title>
     <link href="<%=basePath%>resource/css/bootstrap.min.css" rel="stylesheet">
     <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
     <script src="<%=basePath%>resource/js/bootstrap.min.js"></script>
@@ -84,7 +84,7 @@
 
 <div id="second">
     <ul class="nav nav-tabs" role="tablist">
-        <li class="active"><a href="admin_GetPayInfo.action">查看每月支出</a></li>
+        <li class="active"><a href="admin_GetPayInfo.action">查看每月盈亏</a></li>
         <li><a href="admin_GetDayIncome.action">每日收支管理</a></li>
         <li><a href="admin_GetSalary.action">薪资管理</a></li>
         <li><a href="admin_GetClassConsume.action">课消管理</a></li>

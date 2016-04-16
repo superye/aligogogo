@@ -267,6 +267,14 @@ public class AdminAction extends SuperAction implements ModelDriven<CoachStudent
         return "GetSalary";
     }
 
+    public String GetCoa_Salary() {
+        Coa_Salary coa_salary = new Coa_Salary();
+        GetFinanceService getFinanceService = new GetFinanceServiceImpl();
+        List<Coa_Salary> list = new ArrayList<>();
+        list = getFinanceService.GetCoa_SalaryInfo();
+        request.setAttribute("coa_salary", list);
+        return "GetCoa_Salary";
+    }
     public String InsertDayOutput() {
         GetFinanceService getFinanceService = new GetFinanceServiceImpl();
         getFinanceService.InsertDayOutput(sdo);

@@ -85,7 +85,7 @@
 
 <div id="second">
     <ul class="nav nav-tabs" role="tablist">
-        <li><a href="admin_GetPayInfo.action">查看每月支出</a></li>
+        <li><a href="admin_GetPayInfo.action">查看每月盈亏出</a></li>
         <li class="active"><a href="admin_GetDayIncome.action">每日收支管理</a></li>
         <li><a href="admin_GetSalary.action">薪资管理</a></li>
         <li><a href="admin_GetClassConsume.action">课消管理</a></li>

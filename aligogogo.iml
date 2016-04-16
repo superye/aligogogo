@@ -14,8 +14,6 @@
         <configuration>
           <fileset id="s2fileset" name="Default File Set " removed="false">
             <file>file://$MODULE_DIR$/src/struts.xml</file>
-            <file>jar://$USER_HOME$/jar bag/struts2-core-2.3.24.jar!/struts-default.xml</file>
-            <file>jar://$USER_HOME$/jar bag/struts2-json-plugin-2.2.1.1.jar!/struts-plugin.xml</file>
           </fileset>
           <propertiesKeys disabled="false" />
         </configuration>
@@ -29,7 +27,9 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="commons-beanutils-1.8.0" level="project" />
     <orderEntry type="library" name="commons-fileupload-1.3.1" level="project" />
+    <orderEntry type="library" name="jstl" level="project" />
+    <orderEntry type="library" name="commons-collections-3.2.1" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-5.1.7-bin" level="project" />
   </component>
 </module>

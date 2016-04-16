@@ -2,10 +2,7 @@ package com.fjnu.service;
 
 import com.fjnu.dao.FinanceDAO;
 import com.fjnu.dao.FinanceImpl;
-import com.fjnu.domain.ClassFire;
-import com.fjnu.domain.Salary;
-import com.fjnu.domain.station_day_output;
-import com.fjnu.domain.station_day_input;
+import com.fjnu.domain.*;
 
 import java.util.List;
 
@@ -47,5 +44,11 @@ public class GetFinanceServiceImpl implements GetFinanceService {
     public boolean InsertDayOutput(station_day_output sdo) {
         FinanceDAO financeDAO = new FinanceImpl();
         return financeDAO.InsertDayOutput(sdo);
+    }
+
+    @Override
+    public List<Coa_Salary> GetCoa_SalaryInfo() {
+        FinanceDAO financeDAO = new FinanceImpl();
+        return financeDAO.GetCoa_SalaryInfo();
     }
 }

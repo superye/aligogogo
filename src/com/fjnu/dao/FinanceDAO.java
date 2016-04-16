@@ -1,9 +1,6 @@
 package com.fjnu.dao;
 
-import com.fjnu.domain.ClassFire;
-import com.fjnu.domain.Salary;
-import com.fjnu.domain.station_day_output;
-import com.fjnu.domain.station_day_input;
+import com.fjnu.domain.*;
 
 import java.util.List;
 
@@ -17,4 +14,5 @@ public interface FinanceDAO {
     public List<Salary> GetSalaryInfo();
     public boolean InsertDayInput(station_day_input sdi);
     public boolean InsertDayOutput(station_day_output sdo);
+    public List<Coa_Salary> GetCoa_SalaryInfo();
 }

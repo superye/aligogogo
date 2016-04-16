@@ -80,7 +80,7 @@
 
 <div id="second">
     <ul class="nav nav-tabs" role="tablist">
-        <li><a href="admin_GetPALInfo.action">查看每月支出</a></li>
+        <li><a href="admin_GetPALInfo.action">查看每月盈亏</a></li>
         <li><a href="admin_GetDayIncome.action">每日收支管理</a></li>
         <li class="active"><a href="admin_GetSalary.action">薪资管理</a></li>
         <li><a href="admin_GetClassConsume.action">课消管理</a></li>
@@ -92,8 +92,8 @@
     <div class="tab-pane active" id="A">
         <div id="third">
             <ul class="nav nav-pills">
-                <li role="presentation" class="active"><a href="#">员工薪资管理</a></li>
-                <li role="presentation"><a href="#">Coach薪资管理</a></li>
+                <li role="presentation" class="active"><a href="admin_GetSalary.action">员工薪资管理</a></li>
+                <li role="presentation"><a href="admin_GetCoa_Salary.action">Coach薪资管理</a></li>
                 <li role="presentation"><a href="#">员工薪资标准管理</a></li>
                 <li role="presentation"><a href="#">Coach薪资标准管理</a></li>
             </ul>
