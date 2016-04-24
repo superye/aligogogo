@@ -6,6 +6,9 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="station_day_output">
+        <select id="SelectDayOutputInfo" resultType="com.fjnu.domain.station_day_output">
+               SELECT * FROM t_station_day_output x, Station y WHERE x.station_id = y.station_id ORDER BY DESC
+        </select>
         <update id="InsertDayOutputInfo" parameterType="com.fjnu.domain.station_day_output">
              INSERT INTO t_station_day_output(apply_id, station_id, User_id, time, type, Pname, pay_money, counter_Fee, real_output, balance, transaction_type, has_invoice, person_in_charge)
              VALUES (#{apply_id}, #{station_id}, #{User_id}, #{time}, #{type}, #{Pname}, #{pay_money}, #{counter_Fee}, #{real_output}, #{balance}, #{transaction_type}, #{has_invoice}, #{person_in_charge});

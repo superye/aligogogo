@@ -1,5 +1,7 @@
 package com.fjnu.domain;
 
+import java.util.Date;
+
 /**
  * Created by spzn on 16-4-4.
  */
@@ -8,7 +10,7 @@ public class station_day_output {
     private String apply_id;
     private String station_id;
     private String User_id;
-    private String time;
+    private Date time;
     private int type;
     private String Pname;
     private int pay_money;
@@ -61,11 +63,11 @@ public class station_day_output {
         User_id = user_id;
     }
 
-    public String getTime() {
+    public Date getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(Date time) {
         this.time = time;
     }
 

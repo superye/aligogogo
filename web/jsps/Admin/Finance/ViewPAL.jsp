@@ -119,6 +119,16 @@
         </tr>
         </thead>
         <tbody>
+        <c:forEach items="${station_month_pl}" var="list">
+            <tr>
+                <td>${list.getTime()}</td>
+                <td>${list.getStation_name()}</td>
+                <td>${list.getReal_input()}</td>
+                <td>${list.getReal_output()}</td>
+                <td>${list.getPL()}</td>
+            </tr>
+        </c:forEach>
+        <!--
         <tr>
             <td>2015-01</td>
             <td>好苗苗</td>
@@ -200,6 +210,7 @@
             <td>21000</td>
             <td>4380</td>
         </tr>
+        -->
         </tbody>
 
     </table>

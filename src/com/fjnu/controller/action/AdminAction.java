@@ -136,17 +136,26 @@ public class AdminAction extends SuperAction implements ModelDriven<CoachStudent
     }
 
     public String GetPALInfo() {
-
+        GetFinanceService getFinanceService = new GetFinanceServiceImpl();
+        List<station_month_PL> list = new ArrayList<>();
+        list = getFinanceService.GetMonthPLInfo();
+        request.setAttribute("station_month_pl", list);
         return "GetPALInfo";
     }
 
     public String GetIncomeInfo() {
-
+        GetFinanceService getFinanceService = new GetFinanceServiceImpl();
+        List<station_month_input> list = new ArrayList<>();
+        list = getFinanceService.GetMonthInputInfo();
+        request.setAttribute("station_month_input", list);
         return "GetIncomeInfo";
     }
 
     public String GetPayInfo() {
-
+        GetFinanceService getFinanceService = new GetFinanceServiceImpl();
+        List<station_month_output> list = new ArrayList<station_month_output>();
+        list = getFinanceService.GetMonthOutputInfo();
+        request.setAttribute("station_month_output", list);
         return "GetPayInfo";
     }
 

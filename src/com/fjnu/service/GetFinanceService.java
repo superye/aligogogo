@@ -15,4 +15,7 @@ public interface GetFinanceService {
     public boolean InsertDayInput(station_day_input sdi);
     public boolean InsertDayOutput(station_day_output sdo);
     public List<Coa_Salary> GetCoa_SalaryInfo();
+    public List<station_month_output> GetMonthOutputInfo();
+    public List<station_month_input> GetMonthInputInfo();
+    public List<station_month_PL> GetMonthPLInfo();
 }

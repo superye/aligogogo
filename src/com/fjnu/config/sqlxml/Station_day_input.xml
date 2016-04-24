@@ -8,7 +8,7 @@
 <mapper namespace="station_day_input">
 
     <select id="SelectDayInputInfo" resultType="com.fjnu.domain.station_day_input">
-        SELECT * FROM t_station_day_input x, Station y where x.station_id = y.station_id
+        SELECT * FROM t_station_day_input x, Station y where x.station_id = y.station_id ORDER BY DESC
     </select>
 
     <update id="InsertDayInputInfo" parameterType="com.fjnu.domain.station_day_input">

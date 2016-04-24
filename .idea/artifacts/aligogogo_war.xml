@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="aligogogo:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/aligogogo_war</output-path>
+    <root id="archive" name="aligogogo_war.war">
+      <element id="artifact" artifact-name="aligogogo:war exploded" />
+    </root>
+  </artifact>
+</component>

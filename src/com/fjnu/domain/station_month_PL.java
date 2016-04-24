@@ -1,15 +1,26 @@
 package com.fjnu.domain;
 
+import java.util.Date;
+
 /**
  * Created by spzn on 16-4-4.
  */
 public class station_month_PL {
     private String id;
     private String station_id;
+    private String station_name;
     private String time;
-    private String real_input;
-    private String real_output;
-    private String PL;
+    private double real_input;
+    private double real_output;
+    private double PL;
+
+    public String getStation_name() {
+        return station_name;
+    }
+
+    public void setStation_name(String station_name) {
+        this.station_name = station_name;
+    }
 
     public String getId() {
         return id;
@@ -35,27 +46,27 @@ public class station_month_PL {
         this.time = time;
     }
 
-    public String getReal_input() {
-        return real_input;
-    }
-
-    public void setReal_input(String real_input) {
-        this.real_input = real_input;
-    }
-
-    public String getReal_output() {
+    public double getReal_output() {
         return real_output;
     }
 
-    public void setReal_output(String real_output) {
+    public void setReal_output(double real_output) {
         this.real_output = real_output;
     }
 
-    public String getPL() {
+    public double getReal_input() {
+        return real_input;
+    }
+
+    public void setReal_input(double real_input) {
+        this.real_input = real_input;
+    }
+
+    public double getPL() {
         return PL;
     }
 
-    public void setPL(String PL) {
+    public void setPL(double PL) {
         this.PL = PL;
     }
 }

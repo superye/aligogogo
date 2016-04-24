@@ -108,11 +108,11 @@
     <table class="table table-bordered">
         <thead>
         <tr>
-            <th>时间</th>
+            <th><div style="width: 150px;">时间</div></th>
             <th><div style="width: 300px;">站点</div></th>
             <th>预学管</th>
             <th>线下学管</th>
-            <th>特色班</th>
+            <th>携学测验</th>
             <th><div style="width: 150px;">线上中教</div></th>
             <th><div style="width: 150px;">线上外教</div></th>
             <th>餐费</th>
@@ -122,127 +122,20 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>2015-01</td>
-            <td>好苗苗</td>
-            <td>19000/20000</td>
-            <td>2000/3000</td>
-            <td>3000/4000</td>
-            <td>0/0</td>
-            <td>0/0</td>
-            <td>1000</td>
-            <td>380</td>
-            <td>25380/28380</td>
-        </tr>
-        <tr>
-            <td>2015-01</td>
-            <td>好苗苗</td>
-            <td>19000/20000</td>
-            <td>2000/3000</td>
-            <td>3000/4000</td>
-            <td>0/0</td>
-            <td>0/0</td>
-            <td>1000</td>
-            <td>380</td>
-            <td>25380/28380</td>
-        </tr>
-        <tr>
-            <td>2015-01</td>
-            <td>好苗苗</td>
-            <td>19000/20000</td>
-            <td>2000/3000</td>
-            <td>3000/4000</td>
-            <td>0/0</td>
-            <td>0/0</td>
-            <td>1000</td>
-            <td>380</td>
-            <td>25380/28380</td>
-        </tr>
-        <tr>
-            <td>2015-01</td>
-            <td>好苗苗</td>
-            <td>19000/20000</td>
-            <td>2000/3000</td>
-            <td>3000/4000</td>
-            <td>0/0</td>
-            <td>0/0</td>
-            <td>1000</td>
-            <td>380</td>
-            <td>25380/28380</td>
-        </tr>
-        <tr>
-            <td>2015-01</td>
-            <td>好苗苗</td>
-            <td>19000/20000</td>
-            <td>2000/3000</td>
-            <td>3000/4000</td>
-            <td>0/0</td>
-            <td>0/0</td>
-            <td>1000</td>
-            <td>380</td>
-            <td>25380/28380</td>
-        </tr>
-        <tr>
-            <td>2015-01</td>
-            <td>好苗苗</td>
-            <td>19000/20000</td>
-            <td>2000/3000</td>
-            <td>3000/4000</td>
-            <td>0/0</td>
-            <td>0/0</td>
-            <td>1000</td>
-            <td>380</td>
-            <td>25380/28380</td>
-        </tr>
-        <tr>
-            <td>2015-01</td>
-            <td>好苗苗</td>
-            <td>19000/20000</td>
-            <td>2000/3000</td>
-            <td>3000/4000</td>
-            <td>0/0</td>
-            <td>0/0</td>
-            <td>1000</td>
-            <td>380</td>
-            <td>25380/28380</td>
-        </tr>
-        <tr>
-            <td>2015-01</td>
-            <td>好苗苗</td>
-            <td>19000/20000</td>
-            <td>2000/3000</td>
-            <td>3000/4000</td>
-            <td>0/0</td>
-            <td>0/0</td>
-            <td>1000</td>
-            <td>380</td>
-            <td>25380/28380</td>
-        </tr>
-
-        <tr>
-            <td>2015-01</td>
-            <td>好苗苗</td>
-            <td>19000/20000</td>
-            <td>2000/3000</td>
-            <td>3000/4000</td>
-            <td>0/0</td>
-            <td>0/0</td>
-            <td>1000</td>
-            <td>380</td>
-            <td>25380/28380</td>
-        </tr>
-        <tr>
-            <td>2015-01</td>
-            <td>好苗苗</td>
-            <td>19000/20000</td>
-            <td>2000/3000</td>
-            <td>3000/4000</td>
-            <td>0/0</td>
-            <td>0/0</td>
-            <td>1000</td>
-            <td>380</td>
-            <td>25380/28380</td>
-        </tr>
+        <c:forEach items="${station_month_input}" var="list">
+            <tr>
+                <td>${list.getTime()}</td>
+                <td>${list.getStation_name()}</td>
+                <td>${list.getPre_study_manage()}</td>
+                <td>${list.getOffline_study_manage()}</td>
+                <td>${list.getStudying_test()}</td>
+                <td>${list.getOnline_study_manage()}</td>
+                <td>${list.getOnline_Fteacher()}</td>
+                <td>${list.getMeal_input()}</td>
+                <td>${list.getOther()}</td>
+                <td>${list.getTotal()}</td>
+            </tr>
+        </c:forEach>
         </tbody>
 
     </table>

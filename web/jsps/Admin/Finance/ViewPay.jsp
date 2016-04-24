@@ -132,7 +132,31 @@
         </tr>
         </thead>
         <tbody>
+        <c:forEach items="${station_month_output}" var="list">
         <tr>
+            <td>${list.getTime()}</td>
+            <td>${list.getStation_name()}</td>
+            <td>${list.getTotal()}</td>
+            <td>${list.getEmp_salay()}</td>
+            <td>${list.getCoach_salary()}</td>
+            <td>${list.getCommission_charge()}</td>
+            <td>${list.getWelfare()}</td>
+            <td>${list.getPre_input()}</td>
+            <td>${list.getGas_Fee()}</td>
+            <td>${list.getRent()}</td>
+            <td>${list.getWE_Fee()}</td>
+            <td>${list.getNormal_output()}</td>
+            <td>${list.getStudy_manager()}</td>
+            <td>${list.getOffice_output()}</td>
+            <td>${list.getFixed_money()}</td>
+            <td>${list.getMarket_extension()}</td>
+            <td>${list.getEnvir_manage()}</td>
+            <td>${list.getNet_cost()}</td>
+            <td>${list.getOnce_output()}</td>
+            <td>${list.getOther()}</td>
+        </tr>
+        </c:forEach>
+            <!--
             <td>2015-01</td>
             <td>好苗苗</td>
             <td>21000</td>
@@ -352,7 +376,7 @@
             <td>0</td>
             <td>0</td>
             <td>0</td>
-        </tr>
+            -->
         </tbody>
 
     </table>
